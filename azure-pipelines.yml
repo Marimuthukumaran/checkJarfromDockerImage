@@ -21,12 +21,18 @@ steps:
     inputs:
       dockerVersion: '17.09.0-ce'
 
+  # - task: Docker@2
+  #   displayName: Build and publish image to Azure Container Registry
+  #   inputs:
+  #     command: buildAndPush
+  #     containerRegistry: $(dockerRegistryServiceConnection)
+  #     repository: $(imageRepository)
+  #     dockerfile: $(dockerfilePath)
+  #     tags: |
+  #       $(tag)
   - task: Docker@2
-    displayName: Build and publish image to Azure Container Registry
     inputs:
-      command: buildAndPush
-      containerRegistry: $(dockerRegistryServiceConnection)
-      repository: $(imageRepository)
-      dockerfile: $(dockerfilePath)
-      tags: |
-        $(tag)
+      containerRegistry: 'GetJarRegistryServiceConnection'
+      repository: 'testjar.azurecr.io'
+      command: 'buildAndPush'
+      Dockerfile: '**/Dockerfile'
