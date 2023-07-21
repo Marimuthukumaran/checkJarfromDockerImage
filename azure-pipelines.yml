@@ -8,7 +8,7 @@ pr: none
 
 variables:
   dockerRegistryServiceConnection: 'GetJarRegistryServiceConnection'
-  imageRepository: 'getjar'
+  imageRepository: 'testjar.azurecr.io/azurejar'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
 
@@ -33,6 +33,6 @@ steps:
   - task: Docker@2
     inputs:
       containerRegistry: 'GetJarRegistryServiceConnection'
-      repository: 'testjar.azurecr.io'
+      repository: 'testjar.azurecr.io/azurejar'
       command: 'buildAndPush'
       Dockerfile: '**/Dockerfile'
