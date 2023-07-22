@@ -20,11 +20,12 @@ steps:
   - task: DockerInstaller@0
     inputs:
       dockerVersion: '17.09.0-ce'
+  
   - task: ACRCredential@0
     inputs:
       azureSubscriptionEndpoint: 'GetJarACRServiseConnection'
       resourceGroupName: 'testjar'
-      containerRegistry: 'testjar.azurecr.io'
+      containerRegistry: 'testJar'
       actionType: 'show'
 
   - task: Docker@2
