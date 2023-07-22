@@ -24,7 +24,7 @@ steps:
     inputs:
       azureSubscriptionEndpoint: 'GetJarACRServiseConnection'
       resourceGroupName: 'testjar'
-      containerRegistry: 'testJar'
+      containerRegistry: 'testjar.azurecr.io'
       actionType: 'show'
 
   - task: Docker@2
