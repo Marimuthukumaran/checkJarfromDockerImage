@@ -8,7 +8,8 @@ pr: none
 
 variables:
   dockerRegistryServiceConnection: 'GetJarRegistryServiceConnection'
-  imageRepository: 'testjar.azurecr.io/azurejar'
+  imageRepository: 'azurejar'
+  containerRegistry: 'testjar.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
 
@@ -21,12 +22,12 @@ steps:
     inputs:
       dockerVersion: '17.09.0-ce'
   
-  - task: ACRCredential@0
-    inputs:
-      azureSubscriptionEndpoint: 'GetJarACRServiseConnection'
-      resourceGroupName: 'testjar'
-      containerRegistry: 'testJar'
-      actionType: 'show'
+  # - task: ACRCredential@0
+  #   inputs:
+  #     azureSubscriptionEndpoint: 'GetJarACRServiseConnection'
+  #     resourceGroupName: 'testjar'
+  #     containerRegistry: 'testJar'
+  #     actionType: 'show'
 
   - task: Docker@2
     displayName: Build and publish image to Azure Container Registry
