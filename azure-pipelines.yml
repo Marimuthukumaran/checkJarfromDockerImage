@@ -43,7 +43,7 @@ steps:
     displayName: Build and publish image to Azure Container Registry
     inputs:
       containerRegistry: 'GetJarACRSeviceConnection'
-      repository: 'testjar.azurecr.io'
+      repository: 'testjar.azurecr.io/azurejar'
       command: 'buildAndPush'
       Dockerfile: '**/Dockerfile'
   
