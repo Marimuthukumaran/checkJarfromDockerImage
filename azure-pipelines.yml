@@ -32,4 +32,6 @@ steps:
     inputs:
       azureSubscriptionEndpoint: ACRserviceconnection
       azureContainerRegistry: testjar.azurecr.io
+      imageName: 'azurejar'
       command: 'Push an image'
+      
